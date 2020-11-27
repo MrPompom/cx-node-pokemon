@@ -10,7 +10,7 @@ app.listen(argv[2], function() {
   });
 
   app.get("/", (req, res) => {
-    return res.json()
+    return res.json("acceuil, veuillez utilisez votre barre de recherche : /pokemons = pokedex, /pokemons/id pour faire uen recherche")
   });
 
   app.get("/pokemons", (req, res) => {
@@ -18,11 +18,33 @@ app.listen(argv[2], function() {
   });
 
   app.get("/pokemons/:id", (req, res) => {
-    const search = pokedex.find(c => c.id == parseInt(req.params.id))
-    if(!search) {
+    const search_pokemon = pokedex.find(c => c.id == parseInt(req.params.id))
+    if(!search_pokemon) {
       return (res.status(404).send("Le pokemon que vous cherché n'exixte pas dans le pokédex"))
     }
     else {
-      res.send(search)
+      res.send(search_pokemon)
     }
+})
+
+
+app.post("/items", (req, res) => {
+  const add_pokemon = {
+    id: file.length + 1,
+    name: req.body.name,
+    type: req.body.type,
+    base: req.body.base
+  }
+  return res.send(add_pokemon)
+})
+
+app.delete("/items/:id", (req, res) => {
+  const search_pokemon = pokedex.find(c => c.id == parseInt(req.params.id))
+  if(!search_pokemon) {
+    return (res.status(404).send("Le pokemon que vous cherché n'exixte pas dans le pokédex"))
+  }
+  else {
+    method: 'delete'
+    res.send("vous avez bien supprimée le pokemon")
+  }
 })
