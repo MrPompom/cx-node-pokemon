@@ -1,0 +1,22 @@
+{
+  "name": "cx-node-pokemon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "serveur.js",
+  "scripts": {
+    "dev": "nodemon serveur.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrPompom/cx-node-pokemon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrPompom/cx-node-pokemon/issues"
+  },
+  "homepage": "https://github.com/MrPompom/cx-node-pokemon#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
